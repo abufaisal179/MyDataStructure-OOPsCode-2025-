@@ -16,7 +16,8 @@ public:
 
 Node *insert(Node *root, int target)
 {
-    if (!root)
+    
+    if (root == NULL)
     {
         Node *temp = new Node(target);
         return temp;
@@ -42,6 +43,25 @@ void preOrder( Node *root )
          preOrder( root -> right );
     }
 }
+bool binarySearch( Node *root , int target )
+{
+    if ( root == NULL )
+    {
+        return 0;
+    }
+    if( root -> data == target )
+    {
+        return 1;
+    }
+    if( root-> data > target )
+    {
+        return binarySearch( root -> left , target  );
+    }
+    else 
+    {
+        return binarySearch( root -> right , target );
+    }
+}
 int main(void)
 {
    int arr[] = { 6 , 3 , 11 , 5 , 7 , 18 , 12 , 2 ,11 };
@@ -52,7 +72,9 @@ int main(void)
    {
        root = insert( root , arr[i] );
    }
-
-   preOrder(root);
+  
+    int result = binarySearch ( root , 18 );
+    cout << "the result is : " << result;
+   // preOrder(root);
     return 0;
 }
