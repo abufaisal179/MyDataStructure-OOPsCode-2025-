@@ -34,13 +34,13 @@ Node *insert(Node *root, int target)
 
     return root;
 }
-void preOrder( Node *root )
+void postOrder( Node *root )
 {
     if( root != NULL )
     {
-         preOrder( root -> left );
+         postOrder( root -> left );
          cout << root -> data << " ";
-         preOrder( root -> right );
+         postOrder( root -> right );
     }
 }
 bool binarySearch( Node *root , int target )
@@ -75,6 +75,6 @@ int main(void)
   
     int result = binarySearch ( root , 18 );
     cout << "the result is : " << result;
-   // preOrder(root);
+   // postOrder(root);
     return 0;
 }
