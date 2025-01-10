@@ -1,47 +1,46 @@
 // Hey guys , its Faisal's Program : TITLE >> {}
 #include <iostream>
 using namespace std;
-class Node
+class Node 
 {
-public:
-    int data;
+    public:
+    int data;     
     Node *next;
 
-    Node(int data)
+    Node ( int data )
     {
-        this->data = data;
+        this-> data = data;
         next = NULL;
     }
+    
 };
-void insertAtHead(int data, Node *head)
+void insertAtHead( int data , Node *head  )
 {
     Node *temp = new Node(data);
-    head->next = temp;
+    temp->next = head;
     head = temp;
 }
-void displayLinkedListElement(Node *head)
+void printAllData( Node *&head )
 {
-
     Node *temp = head;
-    while (temp != NULL)
+    while(  temp != NULL )
     {
-        cout << temp->data << "  ";
-        temp = temp->next;
+        cout << temp->data << " ";
+        temp = temp -> next;
     }
-    cout << endl;
 }
 
-int main(void)
-{
+int main(void) {
+ 
+  Node *node = new Node(4);
+  
 
-    Node *head = new Node(4);
+  insertAtHead( 3 , node ); 
+  insertAtHead( 5 , node ); 
+  insertAtHead( 6 , node ); 
+  insertAtHead( 89 , node ); 
 
-    insertAtHead(3, head);
-    insertAtHead(7, head);
-    insertAtHead(12, head);
-    insertAtHead(9, head);
+  printAllData( node );
 
-    displayLinkedListElement(head);
-
-    return 0;
+  return 0;
 }
