@@ -1,46 +1,56 @@
 // Hey guys , its Faisal's Program : TITLE >> {}
 #include <iostream>
 using namespace std;
-class Node 
+class Node
 {
-    public:
-    int data;     
+public:
+    int data;
     Node *next;
 
-    Node ( int data )
+    Node(int data)
     {
-        this-> data = data;
+        this->data = data;
         next = NULL;
     }
-    
 };
-void insertAtHead( int data , Node *head  )
+void insertAtHead(int data, Node *&head)
 {
     Node *temp = new Node(data);
     temp->next = head;
     head = temp;
 }
-void printAllData( Node *&head )
+void printAllData(Node *&head)
 {
     Node *temp = head;
-    while(  temp != NULL )
+    while (temp != NULL)
     {
         cout << temp->data << " ";
-        temp = temp -> next;
+        temp = temp->next;
     }
 }
+void insertAtMiddle( int data , Node *head , int n )
+{
+    
+}
+void insertAtTail(int data, Node *&tail)
+{
+    Node *temp = new Node(data);
+    tail->next = temp;
+    temp->next = NULL;
+    tail = temp;
+}
+int main(void)
+{
 
-int main(void) {
- 
-  Node *node = new Node(4);
-  
+    Node *node = new Node(4);
+    Node *tail = node;
 
-  insertAtHead( 3 , node ); 
-  insertAtHead( 5 , node ); 
-  insertAtHead( 6 , node ); 
-  insertAtHead( 89 , node ); 
+    insertAtTail(6, node);
+    insertAtTail(5, node);
+    insertAtTail(3, node);
+    insertAtTail(89, node);
 
-  printAllData( node );
+    printAllData(tail);
 
-  return 0;
+    return 0;
 }
