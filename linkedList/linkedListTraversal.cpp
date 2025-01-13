@@ -13,6 +13,12 @@ public:
         next = NULL;
     }
 };
+void insertAtTail(int data, Node *&tail)
+{
+    Node *temp = new Node(data);
+    tail->next = temp;
+    tail = tail->next;
+}
 void insertAtHead(int data, Node *&head)
 {
     Node *temp = new Node(data);
@@ -28,8 +34,7 @@ void printAllData(Node *&head)
         temp = temp->next;
     }
 }
-
-void insertAtMiddle(int data, Node *&head, int position)
+void insertAtMiddle(int data, Node *&head, Node *&tail, int position)
 {
     if (position == 1)
     {
@@ -43,17 +48,16 @@ void insertAtMiddle(int data, Node *&head, int position)
         temp = temp->next;
         count++;
     }
+    if (temp->next == NULL)
+    {
+        insertAtTail(data, tail);
+        return;
+    }
     Node *nodeToInsert = new Node(data);
     nodeToInsert->next = temp->next;
     temp->next = nodeToInsert;
 }
 
-void insertAtTail(int data, Node *&tail)
-{
-    Node *temp = new Node(data);
-    tail->next = temp;
-    tail = tail->next;
-}
 int main(void)
 {
 
@@ -64,9 +68,13 @@ int main(void)
     insertAtTail(5, tail);
     insertAtTail(3, tail);
     insertAtTail(89, tail);
-    insertAtMiddle(14 , head , 3);
-
+    insertAtMiddle(14, head, tail, 3);
     printAllData(head);
+
+    cout << endl  
+         << "head >> "<< head->data;
+    cout << endl 
+         << "tail >> "<< tail->data;
 
     return 0;
 }
