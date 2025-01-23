@@ -25,8 +25,8 @@ void enqueue(int data, Queue *&head, Queue *&tail)
     return;
   }
   Queue *temp = new Queue(data);
-  head->next = temp;
-  temp = head;
+  tail->next = temp;
+  tail = temp;
 }
 void dequeue(Queue *&head, Queue *&tail)
 {
@@ -35,8 +35,8 @@ void dequeue(Queue *&head, Queue *&tail)
         return;
     }
   Queue *temp;
-  temp = tail;
-  tail = tail->next;
+  temp = head;
+  head = head -> next;
   temp->next = NULL;
   free(temp);
 }
@@ -58,6 +58,7 @@ void print(Queue *head)
     cout << head->data << " ";
     head = head->next;
   }
+  cout << endl;
 }
 
 int main(void)
@@ -70,8 +71,12 @@ int main(void)
   enqueue(23, head, tail);
   enqueue(8, head, tail);
   enqueue(9, head, tail);
-
   print( head );
+  dequeue( head , tail );
+  print( head );
+
+
+  cout << "the size of Queue is : " << sizeOfQueue(head) << endl;
 
   return 0;
 }
