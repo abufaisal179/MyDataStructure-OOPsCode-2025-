@@ -1,22 +1,14 @@
-// Hey guys , its Faisal's Program : TITLE >> {}
 #include <iostream>
 using namespace std;
-void printFirstTwenty()
+int main ()
 {
-    int count = 20 , i = 1 ;
-    while( count >= 1 )
+    
+   int i;
+    for(  i=0; i<5; i++ )
     {
-          if ( i % 2 == 1 )
-          {
-               cout << i << " ";
-               count--;
-          }
-          i++;
+        cout << "{ hello world }";
+        cout << endl;
     }
-}
-int main(void) {
 
-    printFirstTwenty();
-
-  return 0;
+    return 0;
 }
