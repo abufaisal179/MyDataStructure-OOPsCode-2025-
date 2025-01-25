@@ -3,20 +3,21 @@
 using namespace std;
 void printFirstTwenty()
 {
-    int count = 20 , i = 1 ;
-    while( count >= 1 )
+  int count = 20, i = 1;
+  while (count >= 1)
+  {
+    if (i % 2 == 1)
     {
-          if ( i % 2 == 1 )
-          {
-               cout << i << " ";
-               count--;
-          }
-          i++;
+      cout << i << " ";
+      count--;
     }
+    i++;
+  }
 }
-int main(void) {
+int main(void)
+{
 
-    printFirstTwenty();
+  printFirstTwenty();
 
   return 0;
 }
