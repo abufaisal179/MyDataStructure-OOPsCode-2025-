@@ -1,49 +1,55 @@
-// // Hey guys , its Faisal's Program : TITLE >> {}
-// #include <iostream>
-// using namespace std;
-// class Node
-// {
-// public:
-//     int data;
-//     Node *next;
+// Hey guys , its Faisal's Program : TITLE >> { insertion using data }
+#include <iostream>
+using namespace std;
+class Node
+{
+public:
+    int data;
+    Node *next;
 
-//     Node(int data)
-//     {
-//         this->data = data;
-//         next = NULL;
-//     }
-// };
-// void insertNode(int data, Node *&tail, int ele)
-// {
-//     if (tail == NULL)
-//     {
-//         Node *newNode = new Node(data);
-//         tail = newNode;
-//         newNode->next = newNode;
-//     }
-//     else
-//     {
-//         Node *curr = tail;
+    Node(int data)
+    {
+        this->data = data;
+        next = NULL;
+    }
+};
+void insertNode(int data, Node *&tail, int ele)
+{
+    if (tail == NULL)
+    {
+        Node *newNode = new Node(data);
+        tail = newNode;
+        tail->next = newNode;
+    }
 
-//         while (curr->data != ele)
-//         {
-//             curr = curr->next;
-//         }
-//         Node *temp = new Node(data);
-//         temp->next = curr->next;
-//         curr->next = temp;
-//     }
-// }
-// void printNode(Node *&tail)
-// {
-//     Node *temp = tail;
-//     while ()
-// }
-// int main(void)
-// {
+    Node *curr = tail;
+    while (curr->data != ele)
+    {
+        curr = curr->next;
+    }
+    Node *newNode = new Node(data);
+    newNode->next = curr->next;
+    curr->next = newNode;
+}
 
-//     Node *tail = new Node(4);
+void printNode(Node *tail)
+{
 
-//     insertNode(9, tail, 5);
-//     return 0;
-// }
+    while (tail->next != tail)
+    {
+        cout << tail->data << " ";
+        tail = tail->next;
+    }
+}
+int main(void)
+{
+
+    Node *tail = new Node(4);
+
+    insertNode(5, tail, 4);
+    insertNode(12, tail, 9);
+
+    printNode(tail);
+
+    return 0;
+}
