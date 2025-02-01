@@ -13,6 +13,26 @@ public:
         next = NULL;
     }
 };
+bool isCircular( Node *&head )
+{
+    if( head == NULL || head -> next == head )
+    return true;
+    else if ( head -> next == NULL )
+    return false;
+
+    Node *temp = head;
+
+    while( temp != NULL && temp != head)
+    {
+        temp = temp -> next;
+    }
+
+    if( temp == head )
+    {
+        return true;
+    }
+    return false;
+}
 void insertNode(int data, Node *&tail, int ele)
 {
     if (tail == NULL)
@@ -50,6 +70,10 @@ int main(void)
     insertNode(12, tail, 9);
 
     printNode(tail);
+
+    if( isCircular(tail) == true )
+    cout << "list is circular !! " << endl;
+    else cout << "list is not circular !!" << endl; 
 
     return 0;
 }
