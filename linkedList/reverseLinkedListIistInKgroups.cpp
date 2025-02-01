@@ -1,4 +1,4 @@
-// Hey guys , its Faisal's Program : TITLE >> {}
+// Hey guys , its Faisal's Program : TITLE >> {reverse linked list}
 #include <iostream>
 using namespace std;
 class Node
@@ -26,7 +26,22 @@ void insertAtHead(int data, Node *&head)
     temp->next = head;
     head = temp;
 }
-void printAllData(Node *&head)
+void reverseNode( Node *&head )
+{
+    Node *forward = NULL;
+    Node *prev = NULL;
+    Node *curr = head;
+
+    while( curr != NULL )
+    {
+        forward = curr -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = forward;
+    } 
+    head = prev;
+}
+void printAllData(Node *head)
 {
     Node *temp = head;
     while (temp != NULL)
@@ -34,6 +49,7 @@ void printAllData(Node *&head)
         cout << temp->data << " ";
         temp = temp->next;
     }
+    cout << endl;
 }
 
 int main(void)
@@ -46,7 +62,13 @@ int main(void)
     insertAtHead( 12 , head);
     insertAtHead( 23 , head );
     
+    cout << "original data >>" << endl;
     printAllData( head );
+
+    reverseNode( head );
+
+    cout << "reversed data >>" << endl;
+    printAllData(head);
 
     return 0;
 }
