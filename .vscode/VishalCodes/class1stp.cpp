@@ -3,7 +3,7 @@ using namespace std;
 class fruits 
 {
     private:
-    string name;
+    string name; 
     int code;
    
     public:
