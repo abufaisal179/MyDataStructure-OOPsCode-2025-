@@ -26,20 +26,39 @@ void insertAtHead(int data, Node *&head)
     temp->next = head;
     head = temp;
 }
+int countNode( Node *head )
+{
+    int count = 0;
+
+    while ( head != NULL ) 
+    {
+        head = head -> next;
+        count++;
+    }
+    return count;
+}
 Node *findMiddle(Node *&head)
 {
-    if( head == NULL || head -> next == NULL)
-    return head;
-    
-    Node *pro = head;
-    Node *noob = head;
-    while (pro != NULL && pro->next != NULL)
-    {
-        pro = pro->next->next;
-        noob = noob->next;
-    }
+    if (head == NULL || head->next == NULL)
+        return head;
 
-    return noob;
+    Node *curr = head->next->next;
+    Node *prev = head;
+
+    while (curr != NULL)
+    {
+        curr = curr->next;
+        if (curr != NULL)
+        {
+            curr = curr->next;
+        }
+        prev = prev -> next;
+    }
+    int count = countNode(head);
+    if( count % 2 == 0 )
+    prev = prev -> next;
+
+    return prev;
 }
 void print(Node *head)
 {
@@ -60,7 +79,9 @@ int main(void)
     insertAtHead(8, head);
     insertAtHead(12, head);
     insertAtHead(9, head);
-    insertAtHead(18, head);
+    insertAtHead( 45 , head);
+    insertAtHead( 51 , head);
+
 
     print(head);
 
