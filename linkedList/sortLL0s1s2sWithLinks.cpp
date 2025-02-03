@@ -55,7 +55,10 @@ void Sort(Node *&head)
     {
         zeroTail -> next = twoHead -> next;
     }
+    if( oneHead -> next == NULL )
+    {
     oneTail -> next = twoHead -> next;
+    }
     twoTail -> next = NULL;
     head = zeroHead -> next;
 
