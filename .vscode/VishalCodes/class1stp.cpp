@@ -1,4 +1,6 @@
 #include<iostream>
+#include <list>
+
 using namespace std;
 class fruits 
 {
@@ -20,6 +22,7 @@ class fruits
 };
 int main(void)
 {
+    list<int>l1;
 
     fruits f1("Mango" , 4);
 
