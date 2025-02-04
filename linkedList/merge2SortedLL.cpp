@@ -44,9 +44,7 @@ Node *merge(Node *&first, Node *&second)
             next2 = next2->next;
         }
         else
-        {
-
-            curr1 = next1;
+        {            curr1 = next1;
             next1 = next1->next;
             if (next1->next == NULL)
             {
