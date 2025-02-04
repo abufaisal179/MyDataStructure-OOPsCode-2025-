@@ -13,9 +13,9 @@ public:
         next = NULL;
     }
 };
-int sumLL(Node *head1, Node *head2)
+Node sumLL(Node *head1, Node *head2)
 {
-
+    Node *sumNode = new Node(0);
     int count1 = 0, count2 = 0;
     while (head1 != NULL || head2 != NULL)
     {
@@ -29,42 +29,57 @@ int sumLL(Node *head1, Node *head2)
             count2 = count2 * 10 + head2->data;
             head2 = head2->next;
         }
-
     }
-    cout << " count 1 : " << count2 << endl;
-        return count1 + count2;
-}
-    void printAllData(Node * &head)
+    int sum = count1+count2 , count = 0;
+    while( sum >= 0 )
     {
-        Node *temp = head;
-        while (temp != NULL)
-        {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
+        count
+        sumNode -> data = 
     }
-    void insertAtHead(int data, Node *&head)
+}
+void printAllData(Node *&head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+void insertAtTail(int data, Node *&tail, Node *&head)
+{
+
+    if (tail == NULL)
     {
         Node *temp = new Node(data);
-        temp->next = head;
-        head = temp;
+        tail = temp;
+        head = tail;
+        return;
     }
+    Node *temp = new Node(data);
+    tail->next = temp;
+    tail = temp;
+}
 
-    int main(void)
-    {
+int main(void)
+{
 
-        Node *head1 = new Node(4);
-        insertAtHead(7, head1);
-        insertAtHead(3, head1);
+    Node *tail1 = NULL;
+    Node *head1 = tail1;
+    insertAtTail(7, tail1, head1);
+    insertAtTail(3, tail1, head1);
+    insertAtTail(8, tail1, head1);
 
-        Node *head2 = new Node(5);
-        insertAtHead(2, head2);
-        insertAtHead(1, head1);
-        // insertAtHead( 1 , head1 );
 
-        int result = sumLL(head1, head2);
+    Node *tail2 = NULL;
+    Node *head2 = tail2;
+    insertAtTail(2, tail2, head2);
+    insertAtTail(1, tail2, head2);
+    insertAtTail(3, tail2, head2);
 
-       // cout << "the sum is : " << result;
 
-        return 0;
-    }
+      sumLL(head1, head2);
+
+
+    return 0;
+}
