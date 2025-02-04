@@ -1,40 +1,11 @@
-// CPP program to illustrate
-// Function Overriding
-#include<iostream>
+#include <iostream>
+#include <limits.h>
 using namespace std;
-
-class BaseClass
+int main (void)
 {
-public:
-	virtual void Display()
-	{
-		cout << "\nThis is Display() method"
-				" of BaseClass";
-	}
-	void Show()
-	{
-		cout << "\nThis is Show() method "
-			"of BaseClass";
-	}
-};
-
-class DerivedClass : public BaseClass
-{
-public:
-	// Overriding method - new working of
-	// base class display method
-	// void Display()
-	// {
-	// 	cout << "\nThis is Display() method"
-	// 		" of DerivedClass";
-	// }
-};
-
-// Driver code
-int main()
-{
-	DerivedClass dr;
-	
-	dr.Display();
-	dr.Show();
+    for( int i=1; i < 876543; i++ )
+    {
+        std::cout << i << endl;
+    }
+    return 0;
 }
