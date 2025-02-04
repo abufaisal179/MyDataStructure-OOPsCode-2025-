@@ -13,9 +13,21 @@ public:
         next = NULL;
     }
 };
-Node sumLL(Node *head1, Node *head2)
+void insertAtHead(int data, Node *&head)
 {
-    Node *sumNode = new Node(0);
+    if (head == NULL)
+    {
+        Node *temp = new Node(data);
+        head = temp;
+        return;
+    }
+    Node *temp = new Node(data);
+    temp->next = head;
+    head = temp;
+}
+Node *sumLL(Node *head1, Node *head2)
+{
+    Node *sumNode = NULL;
     int count1 = 0, count2 = 0;
     while (head1 != NULL || head2 != NULL)
     {
@@ -30,12 +42,15 @@ Node sumLL(Node *head1, Node *head2)
             head2 = head2->next;
         }
     }
-    int sum = count1+count2 , count = 0;
-    while( sum >= 0 )
+    int sum = count1 + count2, remainder;
+    while (sum > 0)
     {
-        count
-        sumNode -> data = 
+        remainder = sum % 10;
+        insertAtHead(remainder, sumNode);
+        sum /= 10;
     }
+
+    return sumNode;
 }
 void printAllData(Node *&head)
 {
@@ -70,16 +85,14 @@ int main(void)
     insertAtTail(3, tail1, head1);
     insertAtTail(8, tail1, head1);
 
-
     Node *tail2 = NULL;
     Node *head2 = tail2;
     insertAtTail(2, tail2, head2);
     insertAtTail(1, tail2, head2);
     insertAtTail(3, tail2, head2);
 
-
-      sumLL(head1, head2);
-
+    Node *newHead = sumLL(head1, head2);
+    printAllData(newHead);
 
     return 0;
 }
