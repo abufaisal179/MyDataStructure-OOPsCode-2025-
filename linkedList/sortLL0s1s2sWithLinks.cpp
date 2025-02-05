@@ -55,10 +55,8 @@ void Sort(Node *&head)
     {
         zeroTail -> next = twoHead -> next;
     }
-    if( oneHead -> next == NULL )
-    {
+ 
     oneTail -> next = twoHead -> next;
-    }
     twoTail -> next = NULL;
     head = zeroHead -> next;
 
@@ -93,10 +91,10 @@ int main(void)
    // insertAtHead(1, head);
     insertAtHead(0, head);
     insertAtHead(0, head);
-   // insertAtHead(1, head);
+    //insertAtHead(1, head);
     insertAtHead(2, head);
     insertAtHead(0, head);
-  //  insertAtHead(1, head);
+   // insertAtHead(1, head);
     insertAtHead(2, head);
 
     printAllData(head);
