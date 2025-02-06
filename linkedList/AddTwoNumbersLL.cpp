@@ -50,14 +50,25 @@ Node *addTwoNum(Node *&head1, Node *&head2)
     Node *newList = NULL;
     int carry = 0, sum = 0;
 
-    while (temp1 != NULL || temp2 != NULL)
+    while (temp1 != NULL || temp2 != NULL || sum != 0)
     {
-        sum = carry + temp1->data + temp2->data;
+        sum = carry;
+
+        if (temp1 != NULL)
+        {
+            sum += temp1->data;
+            temp1 = temp1->next;
+        }
+
+        if (temp2 != NULL)
+        {
+            sum += temp2->data;
+            temp2 = temp2->next;
+        }
+
         int digit = sum % 10;
-        insertAtHead( digit+carry , newList);
+        insertAtHead(digit, newList);
         carry = sum / 10;
-        temp1 = temp1->next;
-        temp2 = temp2->next;
     }
 
     reverseNode(newList);
