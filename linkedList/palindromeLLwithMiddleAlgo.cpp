@@ -13,9 +13,9 @@ public:
         next = NULL;
     }
 };
-void reverseNode( Node *&head )
+Node *reverseNode(Node *&head)
 {
-      Node *prev = NULL;
+    Node *prev = NULL;
     Node *next1 = NULL;
     Node *curr = head;
 
@@ -26,40 +26,41 @@ void reverseNode( Node *&head )
         prev = curr;
         curr = next1;
     }
-    head = prev;
+    return prev;
 }
+Node *middleLL(Node *&head)
+{
+    Node *slow = head;
+    Node *fast = head->next;
 
+    while (fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
 bool palindromeOrNot(Node *&head)
 {
     Node *temp = head;
     int rev = 0, remainder;
-    while (temp != NULL)
-    {
-        rev = rev * 10 + temp->data;
-        temp = temp->next;
-    }
-    int prev = rev;
-    int rev2 = 0;
-    while (rev > 0)
-    {
-        remainder = rev % 10;
-        rev2 = rev2 * 10 + remainder;
-        rev /= 10;
-    }
+    Node *middle = middleLL(head);
+    Node *head2 = reverseNode(middle);
 
-    return prev == rev2;
-}
-void middleLL(Node *&head)
-{
-    Node *slow = head;
-    Node *fast = head -> next;
-    
-    while( fast != NULL && fast -> next != NULL )
+    while (head != NULL)
     {
-        fast = fast -> next -> next;
-        slow = slow -> next;
+        if (head->data != head2->data)
+        {
+            return false;
+        }
+
+        head2 = head2->next;
+        head = head->next;
     }
+    head = temp;
+    return true;
 }
+
 void insertAtTail(int data, Node *&tail, Node *&head)
 {
     if (tail == NULL)
@@ -91,12 +92,14 @@ int main(void)
 
     insertAtTail(5, firstTail, first);
     insertAtTail(2, firstTail, first);
-    insertAtTail(7, firstTail, first);
+    insertAtTail(4, firstTail, first);
+    insertAtTail(5, firstTail, first);
 
-
-    // reverseNode( first );
-    middleLL( first ); 
     printAllData(first);
+    Node *slow = middleLL(first);
+
+    cout << slow -> data << endl;
+
     // int result = palindromeOrNot(first);
 
     // (result == 1) ? cout << "palindrome list" : cout << "not palindrome ";
