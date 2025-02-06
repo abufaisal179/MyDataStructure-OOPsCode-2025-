@@ -23,15 +23,15 @@ Node *merge(Node *&first, Node *&second)
     {
         return first;
     }
+    if( first -> next == NULL )
+    {
+        first -> next = second;
+        return first;
+    }
     Node *curr1 = first;
     Node *next1 = first->next;
     Node *curr2 = second;
     Node *next2 = second->next;
-
-    if (second == NULL)
-    {
-        return first;
-    }
 
     while (next1 != NULL && curr2 != NULL)
     {
@@ -44,27 +44,31 @@ Node *merge(Node *&first, Node *&second)
             next2 = next2->next;
         }
         else
-        {            curr1 = next1;
+        {
+            curr1 = next1;
             next1 = next1->next;
-            if (next1->next == NULL)
+            if( next1 ==  NULL )
             {
-                curr1->next = curr2;
-                break;
+                curr1 -> next = curr2;
+                return first ;
             }
         }
     }
+   
     return first;
 }
-void insertAtHead(int data, Node *&head)
+void insertAtTail(int data, Node *&tail , Node *&head)
 {
-    if (head == NULL)
+    if (tail == NULL)
     {
         Node *temp = new Node(data);
+        tail = temp;
         head = temp;
+        return;
     }
     Node *temp = new Node(data);
-    temp->next = head;
-    head = temp;
+    tail->next = temp;
+    tail = tail->next;
 }
 void printAllData(Node *&head)
 {
@@ -73,27 +77,29 @@ void printAllData(Node *&head)
     {
         cout << temp->data << " ";
         temp = temp->next;
-    }        
+    }
     cout << endl;
 }
 
 int main(void)
 {
     Node *first = NULL;
+    Node *firstTail = first;
     Node *second = NULL;
+    Node *secondTail = second;
     Node *result;
 
     // LL 1
-    insertAtHead(2, first);
-    insertAtHead(5, first);
-    insertAtHead(7, first);
+    insertAtTail(2, firstTail , first);
+    insertAtTail(5, firstTail , first);
+    insertAtTail(7, firstTail , first);
 
     printAllData(first);
 
     // LL 2
-    insertAtHead(3, second);
-    insertAtHead(4, second);
-    insertAtHead(9, second);
+    insertAtTail(3, secondTail , second);
+    insertAtTail(4, secondTail , second);
+    insertAtTail(9, secondTail , second);
 
     printAllData(second);
 
