@@ -1,11 +1,12 @@
 #include <iostream>
-#include <limits.h>
+// Hey guys , its Faisal's Program : TITLE >> {}
+#include <iostream>
 using namespace std;
-int main (void)
-{
-    for( int i=1; i < 876543; i++ )
-    {
-        std::cout << i << endl;
-    }
-    return 0;
+
+int main(void) {
+  
+  int temp = 19;
+  temp = temp % 10;
+  cout << temp;
+  return 0;
 }
