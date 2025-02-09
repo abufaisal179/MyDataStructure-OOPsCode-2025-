@@ -1,5 +1,6 @@
 // Hey guys , its Faisal's Program : TITLE >> {}
 #include <iostream>
+#include <queue>
 using namespace std;
 class Node
 {
@@ -15,7 +16,7 @@ public:
         ;
     }
 };
-Node *buildTree(Node *root)
+Node *buildTree(Node *&root)
 {
     int data;
     cout << "enter data : ";
@@ -35,9 +36,35 @@ Node *buildTree(Node *root)
 
     return root;
 }
+void levelOrderTraversal( Node *root )
+{
+  queue<Node*>q;
+
+  q.push( root );
+
+  while (!q.empty())
+  {
+      Node *temp = q.front();
+      cout << temp -> data << " ";
+      q.pop();
+
+      if( temp -> left != NULL )
+      {
+          q.push( temp -> left );
+      }
+      if( temp -> right != NULL )
+      {
+          q.push( temp -> right );
+      }
+  }
+  
+}
 int main(void)
 {
-    Node *root = NULL;
+    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1 
+  Node *root = NULL;
   buildTree(root);
+  cout << "the level order traversal is : " << endl;
+  levelOrderTraversal( root );
     return 0;
 }
