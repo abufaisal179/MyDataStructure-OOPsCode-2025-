@@ -21,7 +21,16 @@ void merge( int *arr , int low , int mid , int high )
             s.push_back(arr[right]);
            right++;
         }
-
+        while( left <= mid )
+        {
+            s.push_back(arr[left]);
+            left++; 
+        }
+        while( right <= high )
+        {
+            s.push_back(arr[right]);
+           right++;
+        }
        
     }
 }
@@ -36,20 +45,22 @@ void mergeSort( int *arr , int low , int high )
     mergeSort( arr , mid+1 , high );
     merge( arr , low , mid , high );
 }
-int main(void while (left <= mid) {
-    s.push_back(arr[left]);
-    left++;
+void print( int *arr , int n )
+{
+    int i=0;
+    while ( i < n )
+    {
+        cout << arr[i] << " ";
+        i++;
+    }
+    cout << endl;
 }
-
-// Copy remaining elements from the right subarray
-while (right <= high) {
-    s.push_back(arr[right]);
-    right++;
-}) {
+int main(void)
+{
 
 
     int arr[6] = {1, 3, 5, 4, 7, 2};
-    mergeSort( arr , 0 , 5);
-
+     mergeSort( arr , 0 , 5);
+     print( arr , 6 );    
   return 0;
 }
