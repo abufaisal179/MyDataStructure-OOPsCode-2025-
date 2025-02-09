@@ -21,17 +21,20 @@ void merge( int *arr , int low , int mid , int high )
             s.push_back(arr[right]);
            right++;
         }
-        while( left <= mid )
-        {
-            s.push_back(arr[left]);
-            left++; 
-        }
-        while( right <= high )
-        {
-            s.push_back(arr[right]);
-           right++;
-        }
-       
+    }
+    while( left <= mid )
+    {
+        s.push_back(arr[left]);
+        left++; 
+    }
+    while( right <= high )
+    {
+        s.push_back(arr[right]);
+       right++;
+    }
+    for( int i=0; i<s.size(); i++ )
+    {
+       arr[low+i] = s[i];
     }
 }
 void mergeSort( int *arr , int low , int high )
