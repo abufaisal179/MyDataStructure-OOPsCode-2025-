@@ -65,6 +65,7 @@ int main(void)
     // 4 9 7 -1 -1 -1 8 -1 -1
 
     insertInBtree(root);
+    cout << endl;
     inOrder(root);
     cout << "the height of tree is : ";
     cout << heightOftree(root);
