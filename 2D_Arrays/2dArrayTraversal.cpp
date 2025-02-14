@@ -19,7 +19,8 @@ int main(void)
 
   int arr[3][3] = {{2, 1, 9},
                    {4, 2, 89},
-                   {12,45,23}};
+                   {12,45,23}
+                  };
 
   printArrayElement(arr, 3, 3);
   return 0;
