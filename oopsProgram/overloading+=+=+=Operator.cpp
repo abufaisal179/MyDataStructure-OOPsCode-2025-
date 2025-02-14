@@ -14,10 +14,10 @@ class Overload
     void operator+=( Overload obj2 )
     {
         this -> a += obj2.a;
-    }
+    } 
     void print()
     {
-        cout << this->a << " " << endl;
+        cout << this -> a << " " << endl;
     }
 };
 
