@@ -19,7 +19,6 @@ void printFibo( int curr , int next )
 }
 int main(void) {
 
-
     printFibo( 0 , 1 );
 
   return 0;
