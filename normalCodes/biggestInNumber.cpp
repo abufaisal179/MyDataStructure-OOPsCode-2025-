@@ -1,21 +1,20 @@
 // Hey guys , its Faisal's Program : TITLE >> {}
 #include <iostream>
 using namespace std;
-int giveBiggest( int number )
+int giveBiggest( long long int number )
 {
-    int last_digit;
-    int container = 0;
-    int max = 0 , store ;
+    long long int last_digit;
+    long long int container = 0;
+    long long int max = 0 , store ;
      while( number > 0 )
      {
         last_digit = number % 10;
         container = container * 10 + last_digit;
-        if( max < store )
+        if( max < container )
         {
-            max = store; 
+            max = container; 
         }
-        store = container;
-        store /= 10;
+        container /= 10;
         number /= 10;
      }
      cout << max;
@@ -23,7 +22,7 @@ int giveBiggest( int number )
 int main(void) {
 
     cout << "enter number : ";
-    int num; 
+    long long int num; 
     cin >> num;
 
     giveBiggest( num );
