@@ -1,4 +1,4 @@
-// Hey guys , its Faisal's Program : TITLE >> {}
+// Hey guys , its Faisal's Program : TITLE >> {insertion sort}
 #include <iostream>
 using namespace std;
 void insertionSort( int *arr , int n )
