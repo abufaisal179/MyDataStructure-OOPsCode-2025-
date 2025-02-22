@@ -110,7 +110,7 @@ int main(void)
     insertAtHead(8, head);
     insertAtTail(6, tail);
     insertAtTail(5, tail);
-    insertAtTail(3, tail);
+    insertAtTail(46, tail);
     insertAtTail(89, tail);
     insertAtMiddle(45, head, tail, 2);
     insertAtMiddle(14, head, tail, 3);
