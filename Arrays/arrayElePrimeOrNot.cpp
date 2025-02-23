@@ -21,7 +21,7 @@ int main(void)
     int i = 0;
     while (i < len)
     {
-        if (printPrime(arr[i]) == true)
+        if (printPrime(arr[i]))
         {
             cout << "prime number " << endl;
         }
