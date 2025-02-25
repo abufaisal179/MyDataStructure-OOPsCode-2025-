@@ -37,28 +37,61 @@ void printAllData(Node *&head)
 }
 bool loopPresentOrNor( Node *&head )
 {
-     Node *temp = head;
-     map< Node* , bool> visited;
+     Node *slow = head;
+     Node *fast = head;
 
+     if( head == NULL )
+     {
+        return false;
+     }
      if( head -> next == NULL )
      {
         return false;
      }
 
-     while( temp != NULL )
+     while( slow != NULL && fast != NULL )
      {
-        if( visited[temp] == true )
-        {
-            return true;
-        }
-       visited[temp] = true;
-
-        temp = temp -> next;
+          fast = fast -> next;
+          if( fast -> next != NULL )
+          {
+            fast = fast -> next;
+          }
+          else return false;
+           
+          slow = slow -> next;
+          if( fast == slow )
+          return true;
      }
 
-    return false;
+
+     return false;
+    
 
 }
+// bool loopPresentOrNor( Node *&head )
+// {
+//      Node *temp = head;
+//      map< Node* , bool> visited;
+
+//      if( head -> next == NULL )
+//      {
+//         return false;
+//      }
+
+//      while( temp != NULL )
+//      {
+//         if( visited[temp] == true )
+//         {
+//             return true;
+//         }
+//        visited[temp] = true;
+
+//         temp = temp -> next;
+//      }
+
+//     return false;
+
+// }
 void insertAtMiddle(int data, Node *&head, Node *&tail, int position)
 {
     if (position == 1)
@@ -95,7 +128,7 @@ int main(void)
     insertAtTail(89, tail);
     insertAtMiddle(14, head, tail, 3);
     
-    tail -> next = head -> next -> next;
+    //tail -> next = head -> next -> next;
     //printAllData(head);
 
     if( loopPresentOrNor( head ))
