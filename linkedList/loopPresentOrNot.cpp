@@ -35,6 +35,38 @@ void printAllData(Node *&head)
         temp = temp->next;
     }
 }
+Node* removeLoop( Node *&head )
+{
+     Node *slow = head;
+     Node *fast = head;
+
+     if( head == NULL )
+     {
+        return NULL;
+     }
+     if( head -> next == NULL )
+     {
+        return head;
+     }
+
+     while( fast != NULL && fast -> next != NULL )
+     {
+          fast = fast -> next;
+          if( fast -> next != NULL )
+          {
+            fast = fast -> next;
+          }
+           
+          slow = slow -> next;
+          if( fast == slow )
+          {
+              fast -> next = slow -> next = NULL;
+          }
+     }
+
+    
+
+}
 bool loopPresentOrNor( Node *&head )
 {
      Node *slow = head;
@@ -49,7 +81,7 @@ bool loopPresentOrNor( Node *&head )
         return false;
      }
 
-     while( slow != NULL && fast != NULL )
+     while( fast != NULL && fast -> next != NULL )
      {
           fast = fast -> next;
           if( fast -> next != NULL )
@@ -128,12 +160,20 @@ int main(void)
     insertAtTail(89, tail);
     insertAtMiddle(14, head, tail, 3);
     
-    //tail -> next = head -> next -> next;
+    tail -> next = head -> next -> next;
     //printAllData(head);
 
     if( loopPresentOrNor( head ))
     {
         cout << " loop present " << endl;
+    }
+    else cout << "not present " << endl;
+
+    removeLoop( head );
+
+    if( loopPresentOrNor( head ))
+    {
+        cout << "loop present " << endl;
     }
     else cout << "not present " << endl;
 
