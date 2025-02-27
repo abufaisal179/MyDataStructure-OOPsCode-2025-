@@ -3,6 +3,7 @@
 using namespace std;
 void reverseString( string &str , int n )
 {
+    
       int left = 0;
       int right = n-1;
 
@@ -19,7 +20,7 @@ void display(string str)
 }
 int main(void) {
 
-    string str = "Faisal";
+    string str = "faisal";
     int size = str.length();
 
     reverseString( str , size );
