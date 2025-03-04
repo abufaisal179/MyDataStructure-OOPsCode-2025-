@@ -1,12 +1,12 @@
 // Hey guys , its Faisal's Program : TITLE >> {}
 #include <iostream>
 using namespace std;
-int returnSum( int number , int sum )
+int returnSum( int i , int sum )
 {
-   if( number < 1 )
-   return 0;
+   if( i < 1 )
+   return sum;
 
-   returnSum( number -1 , sum + number );
+   returnSum( i-1 , sum + i );
 }
 int main(void) {
 
