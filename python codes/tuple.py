@@ -1,0 +1,5 @@
+tup = ( 4 , 5 , 3 ,2 , 8 , 5 )
+count = tup.count(5)
+print( tup )
+print(tup.index( 4 ))
+print( count )
