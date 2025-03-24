@@ -6,7 +6,7 @@ void moveZero( int *arr , int n )
     int j=0;
     for( int i=0; i<n; i++ )
     {
-        if( arr[i] == 0 )
+        if( arr[i] == 0 ) 
         {
             j = i;
             break;
