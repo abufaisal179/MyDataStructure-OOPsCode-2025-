@@ -5,7 +5,7 @@ void print( int n ) {
 
       for( int i=0; i<n; i++ )
       {
-         for( int j=0; j<n-i-1; j++ )
+         for( int j=0; j<2*(n-i-1); j++ )
          {
             cout << " ";
          }
@@ -22,7 +22,7 @@ void print( int n ) {
 int main(void) {
 
 
-print( 5 );
+print( 19 );
 
   return 0;
 }
