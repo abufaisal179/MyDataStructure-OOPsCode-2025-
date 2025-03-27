@@ -1,0 +1,16 @@
+my_set = { 1 , 2, 3 , 3, 4 }
+my_set2 = { 2 , 3 , 7 , 8 , }
+tuple = ( 1 , 2 , 3 )
+union = my_set.union( my_set2)
+intersection = my_set.intersection(my_set2)
+my_set.add( 6 )
+my_set.add(tuple)
+my_set.remove( 4 )
+my_set.pop()
+print( type(my_set) )
+print( id( my_set ))
+print( my_set )
+print(union)
+print("intersection : " , intersection )
+my_set.clear()
+print( my_set )
