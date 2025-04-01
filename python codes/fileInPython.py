@@ -1,0 +1,5 @@
+file = open ( "myFile.txt" , "w+")
+file.write("hello my name is faisal , and i created this file in python ")
+file.seek(0)
+print(file.read())
+file.close()
