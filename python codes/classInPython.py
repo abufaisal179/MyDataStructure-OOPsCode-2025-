@@ -6,3 +6,5 @@ class Student :
         print("the name of student is : " , self.name )
 s1 = Student("faisal")
 s1.printName()
+
+print("END OF CODE")
