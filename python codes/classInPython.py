@@ -7,4 +7,7 @@ class Student :
 s1 = Student("faisal")
 s1.printName()
 
+s2 = Student("David Goggin")
+s2.printName()
+
 print("END OF CODE")
