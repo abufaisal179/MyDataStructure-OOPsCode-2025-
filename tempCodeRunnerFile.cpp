@@ -1,16 +1,26 @@
 #include <iostream>
+// Hey guys , its Faisal's Program : TITLE >> {}
 using namespace std;
-int main ( void )
+void print( int n )
 {
+    int number1 = 0 , number2 = 1;
+    printf(" 0 1 ");
 
-    int store = 1;
-    int fact  = 5;
-    for( int i=1; i<=fact; i++ )
+    n-=2;
+    while( n-- )
     {
-        store = store * i;
+        int next = number1 + number2;
+        cout << next << " ";
+        number1 = number2;
+        number2 = next;
     }
-
-    cout << store ;
-
-    return 0;
 }
+int main(void) {
+
+
+    print(5);
+
+
+  return 0;
+}
+
