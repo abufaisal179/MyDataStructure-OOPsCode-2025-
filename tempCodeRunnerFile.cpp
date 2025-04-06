@@ -1,39 +1,19 @@
 #include <iostream>
-// Hey guys , its Faisal's Program : TITLE >> {}
-#include <iostream>
+#include <string.h>
 using namespace std;
-void delElement( int *arr , int target , int *n )
+void conString( string str1 , string str2 )
 {
-     for( int i=0; i<*n; i++ )
-     {
-        if( arr[i] == target )
-        {
-            for( int j=i; j<*n; j++ )
-            {
-                arr[j] = arr[j+1];
-            }
-        }
-     }
-     n--;
+    strcat( str1 , str2 );
+
 }
-void display(int *arr , int n )
+int main ( void )
 {
-    for( int i=0; i<n; i++ )
-    {
-        cout << arr[i] << " ";
-    }
 
-    cout << endl;
-}
-int main(void) {
+    string str1 = " faisal ";
+    string str2 = " abu ";
 
-    int arr[5] = {5 , 7 , 8 ,2 , 1 };
+    conString( str1 , str2 );
 
-    int n = 5;
-
-    delElement( arr , 7 , &n );
-
-    display( arr , 5 );
-
-  return 0;
+    cout << str1 << endl;
+    return 0;
 }
