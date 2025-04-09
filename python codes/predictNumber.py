@@ -1,4 +1,5 @@
-target = 54
+import random 
+target = random.randint( 1 , 100 );
 
 for i in range( 1 , 100 ) :
     number = int(input("enter number : "))
