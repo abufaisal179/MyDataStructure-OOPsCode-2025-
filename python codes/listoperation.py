@@ -1,0 +1,10 @@
+list = [ 5 , 3 , 2 , 7 , 9 , 2 , 1 ]
+print(list)
+list.append(45)
+print(list)
+list.insert(1 , 'a')
+print(list)
+list.remove(2)
+print(list)
+list.extend([5 , 2 , 9 ])
+print(list)
