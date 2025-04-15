@@ -12,9 +12,9 @@ int returnIdx( int *arr , int n )
             index[arr[i]]++;
        }
 
-       for( auto it :  )
+       for( auto it :  arr.begin() )
        {
-          
+          if( )
        }
 }
 int main(void) {
