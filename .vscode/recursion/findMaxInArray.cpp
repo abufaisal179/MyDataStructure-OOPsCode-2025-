@@ -4,7 +4,7 @@
 using namespace std;
 int findMax( int *arr , int n , int i , int max )
 {
-    if( i <= n - 1 )
+    if( i == n  )
     {
         return max;
     }
@@ -20,7 +20,7 @@ int findMax( int *arr , int n , int i , int max )
 int main(void) {
 
 
-    int arr[] = { 4453 , 54 , 234 , 77 , 56 , 4 , 100000 };
+    int arr[] = { 4453 , 547 , 234454 , 77 , 56000000 , 4 , 100000 };
 
     int size = sizeof(arr)/sizeof(int);
 
