@@ -16,7 +16,7 @@ int returnIdx( int *arr , int target , int n )
         else if( arr[start] <= arr[mid] )
         {
 
-            if( target >= arr[start] & target < arr[mid] )
+            if( target >= arr[start] && target < arr[mid] )
             {
                 end = mid - 1;
             }
