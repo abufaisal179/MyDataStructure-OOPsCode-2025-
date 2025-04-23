@@ -15,7 +15,7 @@ int stringConversion(const string str) {
 }
 
 int main() {
-    string str = "12345";lfkgje;lkgjl
+    string str = "12345";
 
     cout << "The integer is: " << stringConversion(str);
 
