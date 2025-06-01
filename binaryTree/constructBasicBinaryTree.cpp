@@ -12,7 +12,7 @@ public:
     {
         data = val;
         left = right = NULL;
-        ;
+        
     }
 };
 int main(void)
